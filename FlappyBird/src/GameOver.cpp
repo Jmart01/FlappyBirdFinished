@@ -17,18 +17,18 @@ GameOver::GameOver(ty::Application* app)
 	std::cout << "Score: " << GetApp()->GetScore() << std::endl;
 	std::cout << "Highscore: " << GetApp()->GetHighScore() << std::endl;
 
-	m_scoreFont.loadFromFile("Resources/Fonts/Elfboyclassic.tff");
+	m_scoreFont.loadFromFile("Resources/Fonts/Elfboyclassic.ttf");
 	m_scoreText.setFont(m_scoreFont);
 	m_scoreText.setString(std::to_string(GetApp()->GetScore()));
 	m_scoreText.setCharacterSize(100);
 	m_scoreText.setFillColor(sf::Color::White);
-	m_scoreText.setPosition(500, 145);
+	m_scoreText.setPosition(550, 180);
 
 	m_HiscoreText.setFont(m_scoreFont);
 	m_HiscoreText.setString(std::to_string(GetApp()->GetHighScore()));
-	m_scoreText.setCharacterSize(100);
-	m_scoreText.setFillColor(sf::Color::White);
-	m_scoreText.setPosition(500, 250);
+	m_HiscoreText.setCharacterSize(100);
+	m_HiscoreText.setFillColor(sf::Color::White);
+	m_HiscoreText.setPosition(550, 280);
 }
 
 void GameOver::Tick(float DeltaTime)
@@ -41,4 +41,6 @@ void GameOver::DrawBackground()
 	GetApp()->GetWindow()->draw(GetBackGround());
 	GetApp()->GetWindow()->draw(m_GameOverBody);
 	GetApp()->GetWindow()->draw(m_GameOverTitle);
+	GetApp()->GetWindow()->draw(m_scoreText);
+	GetApp()->GetWindow()->draw(m_HiscoreText);
 }
